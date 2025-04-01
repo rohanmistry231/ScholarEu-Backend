@@ -23,7 +23,7 @@ app.use(express.json()); // Parse JSON request bodies
 app.use(helmet());
 
 // CORS - Allow specific origins (modify as needed)
-const allowedOrigins = ["http://localhost:8080", "http://192.168.104.125:8080/"];
+const allowedOrigins = ["http://localhost:8080", "http://192.168.104.125:8080/","https://uni-corner.netlify.app/"];
 app.use(
   cors({
     origin: allowedOrigins,
