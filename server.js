@@ -8,6 +8,7 @@ const universityRoutes = require("./routes/universityRoutes");
 const studentRoutes = require("./routes/studentRoutes");
 const reviewRoutes = require("./routes/reviewRoutes");
 const scholarshipRoutes = require("./routes/scholarshipRoutes");
+const notificationRoutes = require("./routes/notificationRoutes");
 
 // Initialize Express App
 const app = express();
@@ -20,7 +21,7 @@ app.use(cors());
 
 // Database Connection
 mongoose
-  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ Connected to MongoDB"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
@@ -29,6 +30,7 @@ app.use("/universities", universityRoutes);
 app.use("/students", studentRoutes);
 app.use("/reviews", reviewRoutes);
 app.use("/scholarship", scholarshipRoutes);
+app.use("/notification", notificationRoutes);
 
 // Root Route
 app.get("/", (req, res) => {
