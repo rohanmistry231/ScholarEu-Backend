@@ -87,11 +87,7 @@ const UniversitySchema = new mongoose.Schema(
     featured: {
       type: Boolean,
       default: false,
-    },
-    apply_link: {
-      type: String,
-      required: false, // Set to true if every university must have an apply link
-    },
+    }
   },
   { timestamps: true }
 );

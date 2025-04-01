@@ -16,7 +16,7 @@ exports.createUniversity = async (req, res) => {
 // ✅ Get all universities
 exports.getAllUniversities = async (req, res) => {
   try {
-    const universities = await University.find().select("name logo location country rating apply_link").lean();
+    const universities = await University.find().select("name logo location country rating").lean();
     res.status(200).json({ success: true, data: universities });
   } catch (error) {
     res.status(500).json({ success: false, message: "Failed to fetch universities.", error: error.message });
