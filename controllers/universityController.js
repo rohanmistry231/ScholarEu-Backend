@@ -16,7 +16,7 @@ exports.createUniversity = async (req, res) => {
 // ✅ Get all universities
 exports.getAllUniversities = async (req, res) => {
   try {
-    const universities = await University.find().select("name logo location country rating").lean();
+    const universities = await University.find().lean();
     res.status(200).json({ success: true, data: universities });
   } catch (error) {
     res.status(500).json({ success: false, message: "Failed to fetch universities.", error: error.message });
@@ -28,12 +28,12 @@ exports.getUniversityById = async (req, res) => {
   try {
     const university = await University.findById(req.params.id).lean();
     if (!university) {
-      return res.status(404).json({ success: false, message: "University not found" });
+      return res.status(404).json({ success: false, message: 'University not found' });
     }
     res.status(200).json({ success: true, data: university });
   } catch (error) {
-    console.error("Error fetching university by ID:", error);
-    res.status(500).json({ success: false, message: "Server error", error: error.message });
+    console.error('Error fetching university by ID:', error);
+    res.status(500).json({ success: false, message: 'Server error', error: error.message });
   }
 };
 
